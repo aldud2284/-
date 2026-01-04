@@ -1,8 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { NOTICE_DATA } from '../constants.ts';
 import { Post } from '../types.ts';
-import { Search, FileText, Calendar, User, Eye, Image as ImageIcon, X, ExternalLink } from 'lucide-react';
+import { Search, FileText, Calendar, User, Image as ImageIcon, X, ExternalLink } from 'lucide-react';
 
 export const Community: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -91,7 +92,7 @@ export const Community: React.FC = () => {
                   <th className="py-4 px-4">제목</th>
                   <th className="py-4 px-4 text-center w-24 hidden md:table-cell">작성자</th>
                   <th className="py-4 px-4 text-center w-32">작성일</th>
-                  <th className="py-4 px-4 text-center w-20 hidden md:table-cell">조회</th>
+                  {/* Removed View Count Column Header */}
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -136,7 +137,7 @@ export const Community: React.FC = () => {
                     </td>
                     <td className="py-4 px-4 text-center text-gray-500 hidden md:table-cell font-medium">{post.author}</td>
                     <td className="py-4 px-4 text-center text-gray-500">{post.date}</td>
-                    <td className="py-4 px-4 text-center text-gray-500 hidden md:table-cell">{post.views}</td>
+                    {/* Removed View Count Data Cell */}
                   </tr>
                 ))}
               </tbody>
@@ -181,10 +182,7 @@ export const Community: React.FC = () => {
                   <User size={16} />
                   <span>작성자: {selectedPost.author}</span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <Eye size={16} />
-                  <span>조회수: {selectedPost.views}</span>
-                </div>
+                {/* Removed View Count from Modal Detail */}
               </div>
 
               {selectedPost.imageUrl && (
