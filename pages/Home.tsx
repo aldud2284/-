@@ -106,7 +106,7 @@ export const Home: React.FC = () => {
                   {latestPosts.map((post) => (
                     <Link 
                       key={post.id} 
-                      to={`/community`} 
+                      to={`/community?id=${post.id}`} 
                       className="bg-gray-50 hover:bg-white hover:shadow-xl hover:border-blue-100 border border-transparent p-6 rounded-2xl transition-all group flex flex-col sm:flex-row sm:items-center justify-between gap-4"
                     >
                       <div className="flex items-start gap-4 overflow-hidden">
