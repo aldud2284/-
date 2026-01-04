@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Target, Users, Heart } from 'lucide-react';
+import chairmanPhoto from '../assets/chairman.jpg';
 
 export const About: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'intro' | 'purpose' | 'org' | 'location'>('intro');
@@ -45,9 +46,8 @@ export const About: React.FC = () => {
              <div className="flex flex-col gap-8">
                 <div className="flex flex-col md:flex-row gap-8 items-start">
                    <div className="w-full md:w-1/3 shrink-0">
-                      <div className="aspect-[3/4] bg-gray-200 rounded-lg shadow-inner flex items-center justify-center text-gray-400">
-                         {/* Placeholder for Chairman's Photo */}
-                         <span>이사장 사진</span>
+                      <div className="aspect-[3/4] rounded-lg shadow-inner overflow-hidden">
+                         <img src={chairmanPhoto} alt="이사장 한이남" className="w-full h-full object-cover" />
                       </div>
                    </div>
                    <div className="flex-1">
