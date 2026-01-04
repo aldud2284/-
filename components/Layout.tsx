@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MapPin, ShieldCheck, Building2 } from 'lucide-react';
-import { NAV_ITEMS } from '../constants';
+import { NAV_ITEMS } from '../constants.ts';
 
-// CSS & Icon based Logo Component
 const AssociationLogo: React.FC<{ className?: string }> = ({ className = "h-12 w-12" }) => (
   <div className={`${className} bg-gradient-to-br from-primary to-blue-600 rounded-xl flex items-center justify-center shadow-lg shrink-0 relative overflow-hidden border border-white/20`}>
     <Building2 className="text-white relative z-10 drop-shadow-md" size={24} strokeWidth={2} />
@@ -24,7 +23,6 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
@@ -32,7 +30,6 @@ const Header: React.FC = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
           <AssociationLogo />
           <div className={`flex flex-col ${isScrolled ? 'text-gray-800' : 'text-white drop-shadow-md'}`}>
@@ -41,7 +38,6 @@ const Header: React.FC = () => {
           </div>
         </Link>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_ITEMS.map((item) => (
             <Link
@@ -66,7 +62,6 @@ const Header: React.FC = () => {
           </Link>
         </nav>
 
-        {/* Mobile Toggle */}
         <button 
           className={`md:hidden p-2 ${isScrolled ? 'text-gray-800' : 'text-white'}`}
           onClick={() => setIsOpen(!isOpen)}
@@ -75,7 +70,6 @@ const Header: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Nav */}
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t shadow-xl">
           <nav className="flex flex-col p-4">
@@ -105,7 +99,6 @@ const Footer: React.FC = () => {
     <footer className="bg-slate-900 text-gray-300 py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 border-b border-slate-700 pb-8">
-          {/* Brand & Info */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <AssociationLogo className="h-12 w-12" />
@@ -123,17 +116,14 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="text-white font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li><Link to="/about" className="hover:text-primary transition-colors">연합회 소개</Link></li>
               <li><Link to="/community" className="hover:text-primary transition-colors">공지/소식</Link></li>
-              <li><a href="#" className="hover:text-primary transition-colors">개인정보처리방침</a></li>
             </ul>
           </div>
 
-           {/* Contact */}
            <div>
             <h3 className="text-white font-bold mb-4">Contact</h3>
             <ul className="space-y-3 text-sm">

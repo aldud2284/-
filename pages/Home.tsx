@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { HERO_SLIDES, NOTICE_DATA } from '../constants';
+import { HERO_SLIDES, NOTICE_DATA } from '../constants.ts';
 
 export const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -37,7 +37,7 @@ export const Home: React.FC = () => {
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-md animate-fade-in-up break-keep">
                 {slide.title}
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl mb-8 font-light drop-shadow-sm max-w-2xl animate-fade-in-up delay-100 break-keep whitespace-pre-line">
+              <p className="text-lg md:text-xl lg:text-2xl mb-8 font-light drop-shadow-sm max-w-2xl animate-fade-in-up delay-100 break-keep whitespace-pre-line leading-relaxed">
                 {slide.subtitle}
               </p>
               <Link 
@@ -72,8 +72,6 @@ export const Home: React.FC = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            
-            {/* Notice Board Preview */}
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-2xl font-bold text-gray-800 border-l-4 border-primary pl-4">공지/소식</h2>
@@ -101,7 +99,6 @@ export const Home: React.FC = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </section>

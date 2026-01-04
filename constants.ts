@@ -1,4 +1,4 @@
-import { NavItem, Post, GalleryItem, OrganizationMember, BusinessItem } from './types';
+import { NavItem, Post, GalleryItem, OrganizationMember, BusinessItem } from './types.ts';
 
 export const NAV_ITEMS: NavItem[] = [
   { label: '연합회 소개', path: '/about' },
@@ -7,14 +7,14 @@ export const NAV_ITEMS: NavItem[] = [
 
 export const HERO_SLIDES = [
   {
-    image: 'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=1920&q=80',
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80',
     title: '함께 사는 즐거움, 함께 만드는 행복',
     subtitle: '더 나은 공동체 문화를 선도하는 중심,\n(사)용인특례시 공동주택연합회입니다.',
   },
   {
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80',
+    image: 'https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1920&q=80',
     title: '입주민과 함께, 행복한 용인',
-    subtitle: '관(官)과 시민을 잇는 소통 창구로서 최선을 다하겠습니다.',
+    subtitle: '관(官)과 시민을 잇는 소통 창구로서\n최선을 다하겠습니다.',
   },
 ];
 

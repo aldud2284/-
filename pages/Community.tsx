@@ -1,32 +1,32 @@
 import React from 'react';
-import { NOTICE_DATA } from '../constants';
-import { Search, Download, ExternalLink } from 'lucide-react';
+import { NOTICE_DATA } from '../constants.ts';
+import { Search, ExternalLink, Download } from 'lucide-react';
 
 export const Community: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
-      <div className="bg-white border-b">
-        <div className="container mx-auto px-4 py-16">
+      {/* Page Header - Matched with About page style */}
+      <div className="bg-slate-900 text-white py-20">
+        <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4">공지/소식</h1>
-          <p className="text-gray-500">협회의 공지사항과 주요 소식을 알려드립니다.</p>
+          <p className="text-gray-400">협회의 공지사항과 주요 소식을 알려드립니다.</p>
         </div>
       </div>
 
       <div className="container mx-auto px-4 -mt-8">
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 min-h-[500px]">
-          {/* Search Bar */}
-          <div className="flex justify-end mb-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8 pb-6 border-b border-gray-100">
+            <h2 className="text-xl font-bold text-gray-800">전체 게시글</h2>
             <div className="relative">
               <input 
                 type="text" 
                 placeholder="검색어를 입력하세요" 
-                className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm w-64"
+                className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm w-full md:w-64"
               />
               <Search className="absolute left-3 top-2.5 text-gray-400" size={16} />
             </div>
           </div>
 
-          {/* List Table */}
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left">
               <thead className="bg-gray-50 text-gray-600 font-medium border-t border-gray-200">
@@ -66,7 +66,7 @@ export const Community: React.FC = () => {
                       ) : (
                         <span className="cursor-pointer hover:text-primary hover:underline">
                           {post.title}
-                          {post.id % 2 === 0 && post.id < 8 && <Download size={14} className="inline ml-2 text-gray-400" />}
+                          {post.id % 2 === 0 && <Download size={14} className="inline ml-2 text-gray-400" />}
                         </span>
                       )}
                     </td>
@@ -75,28 +75,8 @@ export const Community: React.FC = () => {
                     <td className="py-3 px-4 text-center text-gray-500 hidden md:table-cell">{post.views}</td>
                   </tr>
                 ))}
-                {/* Mock Empty Rows */}
-                {[...Array(3)].map((_, i) => (
-                  <tr key={`mock-${i}`} className="hover:bg-gray-50">
-                    <td className="py-3 px-4 text-center text-gray-300">-</td>
-                    <td className="py-3 px-4 text-center"></td>
-                    <td className="py-3 px-4 text-gray-300">게시글이 없습니다.</td>
-                    <td className="py-3 px-4"></td>
-                    <td className="py-3 px-4"></td>
-                    <td className="py-3 px-4 hidden md:table-cell"></td>
-                  </tr>
-                ))}
               </tbody>
             </table>
-          </div>
-
-          {/* Pagination */}
-          <div className="flex justify-center mt-8 gap-2">
-            <button className="px-3 py-1 border rounded hover:bg-gray-50 disabled:opacity-50">&lt;</button>
-            <button className="px-3 py-1 border rounded bg-primary text-white">1</button>
-            <button className="px-3 py-1 border rounded hover:bg-gray-50">2</button>
-            <button className="px-3 py-1 border rounded hover:bg-gray-50">3</button>
-            <button className="px-3 py-1 border rounded hover:bg-gray-50 disabled:opacity-50">&gt;</button>
           </div>
         </div>
       </div>
