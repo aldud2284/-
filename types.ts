@@ -11,6 +11,8 @@ export interface Post {
   author: string;
   category: string;
   views: number;
+  content?: string;
+  imageUrl?: string;
   link?: string;
 }
 
