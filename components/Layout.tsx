@@ -96,9 +96,10 @@ const Header: React.FC = () => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-900 text-gray-300 py-12">
+    <footer className="bg-slate-900 text-gray-300 py-16">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 border-b border-slate-700 pb-8">
+        {/* Removed horizontal border lines and adjusted gap for a clean single-surface look */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <AssociationLogo className="h-12 w-12" />
@@ -139,7 +140,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+        <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 pt-8 border-t border-slate-800/50">
           <p>Copyright &copy; Yongin Special City Apartment Association. All Rights Reserved.</p>
           <div className="flex items-center gap-2 mt-2 md:mt-0">
             <ShieldCheck size={14} />

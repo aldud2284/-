@@ -143,9 +143,8 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section - Gradient removed to fix rendering lines */}
       <section className="py-24 bg-slate-900 text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">여러분의 참여가 더 나은 주거 환경을 만듭니다</h2>
           <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
