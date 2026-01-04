@@ -40,10 +40,11 @@ export const Admin: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
+    // Default credentials remain admin/admin for demonstration but are no longer visible in UI
     if (loginId === 'admin' && loginPw === 'admin') {
       setIsLoggedIn(true);
     } else {
-      alert('아이디 또는 비밀번호가 일치하지 않습니다. (admin/admin)');
+      alert('아이디 또는 비밀번호가 일치하지 않습니다.');
     }
   };
 
@@ -122,7 +123,7 @@ export const Admin: React.FC = () => {
                 type="text" 
                 value={loginId} onChange={(e) => setLoginId(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-primary transition-all"
-                placeholder="admin"
+                placeholder="아이디를 입력하세요"
               />
             </div>
             <div>
@@ -131,7 +132,7 @@ export const Admin: React.FC = () => {
                 type="password"
                 value={loginPw} onChange={(e) => setLoginPw(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-primary transition-all"
-                placeholder="••••••"
+                placeholder="비밀번호를 입력하세요"
               />
             </div>
             <button type="submit" className="w-full bg-primary text-white font-bold py-3.5 rounded-lg hover:bg-primary/90 transition-colors">
@@ -212,7 +213,7 @@ export const Admin: React.FC = () => {
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <div className="text-gray-500 text-sm font-bold uppercase tracking-wider mb-2">공지사항 비율</div>
-              <div className="text-4xl font-black text-secondary">{Math.round((posts.filter(p => p.category === '공지').length / posts.length) * 100)}%</div>
+              <div className="text-4xl font-black text-secondary">{posts.length > 0 ? Math.round((posts.filter(p => p.category === '공지').length / posts.length) * 100) : 0}%</div>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <div className="text-gray-500 text-sm font-bold uppercase tracking-wider mb-2">최근 작성일</div>

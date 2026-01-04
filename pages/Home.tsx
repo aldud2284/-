@@ -90,7 +90,7 @@ export const Home: React.FC = () => {
                 <div className="inline-flex p-3 bg-blue-50 text-primary rounded-2xl mb-4">
                   <Bell size={28} />
                 </div>
-                <h2 className="text-3xl font-bold text-gray-800 mb-4 tracking-tight">협회 공지 및<br/>주요 소식</h2>
+                <h2 className="text-3xl font-bold text-gray-800 mb-4 tracking-tight">연합회 공지 및<br/>주요 소식</h2>
                 <p className="text-gray-500 leading-relaxed mb-6">
                   용인특례시 공동주택의 밝은 미래를 위한<br/>
                   연합회의 다양한 활동과 공지사항을 확인하세요.
@@ -154,7 +154,7 @@ export const Home: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a href="mailto:ygf2024@naver.com" className="bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-full font-bold text-xl transition-all shadow-2xl transform hover:-translate-y-1">
-              협회에 문의하기
+              연합회에 문의하기
             </a>
             <Link to="/about" className="bg-white/10 hover:bg-white/20 text-white px-10 py-4 rounded-full font-bold text-xl transition-all border border-white/20 backdrop-blur-md">
               연합회 비전 보기

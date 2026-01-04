@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { NOTICE_DATA } from '../constants.ts';
 import { Post } from '../types.ts';
@@ -29,7 +28,7 @@ export const Community: React.FC = () => {
       <div className="bg-slate-900 text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4">공지/소식</h1>
-          <p className="text-gray-400">협회의 공지사항과 주요 소식을 알려드립니다.</p>
+          <p className="text-gray-400">연합회의 공지사항과 주요 소식을 알려드립니다.</p>
         </div>
       </div>
 
