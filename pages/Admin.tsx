@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LayoutDashboard, FileText, LogOut, Plus, Trash2, Edit2, Save, X, Image as ImageIcon, CheckCircle } from 'lucide-react';
+import { LayoutDashboard, FileText, LogOut, Plus, Trash2, Edit2, Save, X, Image as ImageIcon, CheckCircle, Link as LinkIcon } from 'lucide-react';
 import { NOTICE_DATA } from '../constants.ts';
 import { Post } from '../types.ts';
 
@@ -19,7 +19,8 @@ export const Admin: React.FC = () => {
     category: '공지',
     author: '관리자',
     content: '',
-    imageUrl: ''
+    imageUrl: '',
+    link: ''
   });
 
   // Load posts from localStorage on mount
@@ -61,16 +62,17 @@ export const Admin: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const formData = { ...form, link: form.link.trim() || undefined };
     if (editingPost) {
-      const updatedPosts = posts.map(p => 
-        p.id === editingPost.id ? { ...p, ...form } : p
+      const updatedPosts = posts.map(p =>
+        p.id === editingPost.id ? { ...p, ...formData } : p
       );
       savePosts(updatedPosts);
       alert('게시글이 수정되었습니다.');
     } else {
       const newPost: Post = {
         id: posts.length > 0 ? Math.max(...posts.map(p => p.id)) + 1 : 1,
-        ...form,
+        ...formData,
         date: new Date().toISOString().split('T')[0],
         views: 0
       };
@@ -82,7 +84,7 @@ export const Admin: React.FC = () => {
   };
 
   const resetForm = () => {
-    setForm({ title: '', category: '공지', author: '관리자', content: '', imageUrl: '' });
+    setForm({ title: '', category: '공지', author: '관리자', content: '', imageUrl: '', link: '' });
     setEditingPost(null);
   };
 
@@ -93,7 +95,8 @@ export const Admin: React.FC = () => {
       category: post.category,
       author: post.author,
       content: post.content || '',
-      imageUrl: post.imageUrl || ''
+      imageUrl: post.imageUrl || '',
+      link: post.link || ''
     });
     setActiveTab('write');
   };
@@ -244,7 +247,10 @@ export const Admin: React.FC = () => {
                             {post.category}
                           </span>
                         </td>
-                        <td className="p-5 font-medium text-gray-800">{post.title}</td>
+                        <td className="p-5 font-medium text-gray-800">
+                          {post.title}
+                          {post.link && <LinkIcon size={14} className="inline ml-1.5 text-blue-400" />}
+                        </td>
                         <td className="p-5 text-gray-500">{post.date}</td>
                         <td className="p-5 text-right">
                           <div className="flex justify-end gap-2">
@@ -302,7 +308,7 @@ export const Admin: React.FC = () => {
 
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-2">제목</label>
-                <input 
+                <input
                   type="text"
                   value={form.title}
                   onChange={(e) => setForm(prev => ({ ...prev, title: e.target.value }))}
@@ -310,6 +316,22 @@ export const Admin: React.FC = () => {
                   placeholder="제목을 입력하세요"
                   required
                 />
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2">
+                  <span className="flex items-center gap-1.5"><LinkIcon size={15} /> 외부 링크 (선택)</span>
+                </label>
+                <input
+                  type="url"
+                  value={form.link}
+                  onChange={(e) => setForm(prev => ({ ...prev, link: e.target.value }))}
+                  className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="https://example.com (링크 입력 시 해당 페이지로 이동합니다)"
+                />
+                {form.link && (
+                  <p className="text-xs text-blue-500 mt-1.5">* 링크가 입력된 게시글은 클릭 시 해당 링크로 이동합니다.</p>
+                )}
               </div>
 
               <div>
